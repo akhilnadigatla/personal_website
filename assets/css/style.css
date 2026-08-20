@@ -8,9 +8,11 @@
   --accent-hover: #12263f;
   --track-bg: #ececea;
 
-  --page-width: 680px;
-  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --font-sans: "Source Sans 3", Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --page-width: 720px;
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-serif: "Lora", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Mono", "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
 }
 
 [data-theme="dark"] {
@@ -62,13 +64,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
   line-height: 1.22;
   font-family: var(--font-serif);
-  font-weight: 450;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: 2.55rem;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 440;
+  font-variation-settings: "opsz" 40;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
 }
 
 p {
@@ -207,10 +213,18 @@ nav {
 }
 
 .tagline {
-  margin: 0 0 1.1rem;
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
+  margin: 0 0 1.35rem;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
   color: var(--muted);
+}
+
+.tagline::before {
+  content: "> ";
+  color: var(--accent);
 }
 
 .portrait {
@@ -223,8 +237,12 @@ nav {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 7px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .portrait img {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .bio-copy::after {
@@ -251,7 +269,7 @@ nav {
 .post-list h3 {
   margin: 0 0 0.3rem;
   font-size: 1.42rem;
-  font-weight: 470;
+  font-weight: 500;
 }
 
 .post-list a {
