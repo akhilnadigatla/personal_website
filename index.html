@@ -7,7 +7,8 @@
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+          var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (t === "dark" || (!t && prefersDark)) document.documentElement.setAttribute("data-theme", "dark");
         } catch (e) {}
       })();
     </script>
